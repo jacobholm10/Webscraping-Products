@@ -29,7 +29,7 @@ for link in product_links:
     soup = BeautifulSoup(response.content, 'html.parser')
 
     title = soup.find('h1', {'class': 'product-title nacelle'}).text
-    price_now = soup.find('span', {'class': 'product-price nacelle has-compared'}).text.split('e')[1].strip()
+    price_now = '$' + soup.find('span', {'class': 'product-price nacelle'}).text.strip().split('$')[1]
     original_price = soup.find('span', {'class': 'product-price nacelle compared'}).text.split('e')[2].strip()
     reviews = soup.find('span', {'class': 'rating-total'}).text.strip()
 
